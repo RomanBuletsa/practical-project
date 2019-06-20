@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 1577142463}
+  rounds: []
+  fallingObject: []
 --- !u!1 &1577142461
 GameObject:
   m_ObjectHideFlags: 0
