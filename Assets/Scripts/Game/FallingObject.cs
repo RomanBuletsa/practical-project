@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using Game;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Game
@@ -10,12 +7,12 @@ namespace Game
     [Serializable]
     public class FallingObject 
     {
-        [SerializeField] private TypesPrefabs tepe;
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private TypesPrefabs type;
+        [SerializeField] private List<GameObject> prefabs;
         
         
-        public TypesPrefabs Tepe => tepe;
-        public GameObject Prefab => prefab;
+        public TypesPrefabs Type => type;
+        public List<GameObject> Prefabs => prefabs;
     
     }
 }

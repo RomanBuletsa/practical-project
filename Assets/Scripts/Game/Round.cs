@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using Game;
 using UnityEngine;
 
-[Serializable]
-public class Round 
+namespace Game
 {
-    [SerializeField] private float speed;
-    [SerializeField] private TypesPrefabs target;
-    [SerializeField] private List<TypesPrefabs> allobject;
+    [Serializable]
+    public class Round 
+    {
+        [SerializeField] private TypesPrefabs objectsToCatch;
+        [SerializeField] private List<TypesPrefabs> allObject;
+        [SerializeField] private int countFallingObjPerPound;
+        [SerializeField] private float roundSpawnRate;
+        [SerializeField] private float speed;
+        [SerializeField] private int trueAnswerPrice;
+        [SerializeField] private int falseAswerPrice;
     
-    public float Speed => speed;
-    public TypesPrefabs Target => target;
-    public List<TypesPrefabs> Allobject => allobject;
+
+        public TypesPrefabs ObjectsToCatch => objectsToCatch;
+        public List<TypesPrefabs> AllObject => allObject;
+        public int CountFallingObjPerPound => countFallingObjPerPound;
+        public float RoundSpawnRate => roundSpawnRate;
+        public float Speed => speed;
+        public int TrueAnswerPrice => trueAnswerPrice;
+        public int FalseAswerPrice => falseAswerPrice;
+    }
 }

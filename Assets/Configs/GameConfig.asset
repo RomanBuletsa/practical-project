@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1699c550ad5ff2b40bcdcf8ea068940e, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  rounds:
+  - objectsToCatch: 3
+    allObject: 0300000005000000
+    countFallingObjPerPound: 10
+    roundSpawnRate: 1
+    speed: 1
+    trueAnswerPrice: 5
+    falseAswerPrice: -5
+  - objectsToCatch: 1
+    allObject: 010000000200000003000000
+    countFallingObjPerPound: 7
+    roundSpawnRate: 0.7
+    speed: 1.5
+    trueAnswerPrice: 7
+    falseAswerPrice: -7
+  - objectsToCatch: 0
+    allObject: 000000000200000001000000
+    countFallingObjPerPound: 8
+    roundSpawnRate: 0.8
+    speed: 1.6
+    trueAnswerPrice: 7
+    falseAswerPrice: -8
+  fallingObjects:
+  - type: 0
+    prefabs: []
+  - type: 1
+    prefabs: []
+  - type: 2
+    prefabs: []
+  - type: 3
+    prefabs: []
+  - type: 4
+    prefabs: []
+  - type: 5
+    prefabs: []
