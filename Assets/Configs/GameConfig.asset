@@ -15,15 +15,15 @@ MonoBehaviour:
   rounds:
   - objectsToCatch: 3
     allObject: 0300000005000000
-    countFallingObjPerPound: 10
-    roundSpawnRate: 1
-    speed: 1
+    countFallingObjPerPound: 5
+    roundSpawnRate: 1.5
+    speed: 0.5
     trueAnswerPrice: 5
     falseAswerPrice: -5
   - objectsToCatch: 1
     allObject: 010000000200000003000000
     countFallingObjPerPound: 7
-    roundSpawnRate: 0.7
+    roundSpawnRate: 1.5
     speed: 1.5
     trueAnswerPrice: 7
     falseAswerPrice: -7
@@ -36,14 +36,22 @@ MonoBehaviour:
     falseAswerPrice: -8
   fallingObjects:
   - type: 0
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: a032bba87a002104a8aa28e311406cd3, type: 3}
   - type: 1
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: bece6ddba5e8bec448ef61279eef0961, type: 3}
   - type: 2
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: a4282bd95202bd148a5d91289d7b29d3, type: 3}
   - type: 3
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: 608ecd94b8c9bda43bfc9693461cb59a, type: 3}
+    - {fileID: 8236019705731966368, guid: aafea01eb21d7bd44b55d3a799467875, type: 3}
   - type: 4
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: da27bc185d600e74f92d02cb8e568181, type: 3}
   - type: 5
-    prefabs: []
+    prefabs:
+    - {fileID: 8236019705731966368, guid: 5b44b842352d9dd46931e650c4c0bdba, type: 3}
+    - {fileID: 8236019705731966368, guid: 5b44b842352d9dd46931e650c4c0bdba, type: 3}
