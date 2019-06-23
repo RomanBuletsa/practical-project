@@ -13,7 +13,7 @@ namespace Game
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private Caughting caughting;
+        [SerializeField] private Player player;
         [SerializeField] private Land land;
         [SerializeField] private Button menuButton;
         [SerializeField] private GameConfig gameConfig;
@@ -38,8 +38,8 @@ namespace Game
             ApplicationManager.Instance.GameManager = this;
             
             menuButton.onClick.AddListener(OnMenuButtonClicked);
-            caughting.Caught += Caught;
-            land.Delete += Delete;
+            player.Caught += Caught; // TODO: you're not unsubscribing
+            land.Delete += Delete; // TODO: you're not unsubscribing
         }
 
         private void Start()

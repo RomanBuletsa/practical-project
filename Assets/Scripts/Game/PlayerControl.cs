@@ -1,36 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+namespace Game
 {
-    private bool l = false;
-    private bool r = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public sealed class PlayerControl : MonoBehaviour
+	{
+		[SerializeField] private float movementSpeed = 0.2f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetAxis("Horizontal") > 0f) l = true;
-        if (Input.GetAxis("Horizontal") < 0f) r = true;
-    }
+		private float movementAmount;
 
-    void FixedUpdate()
-    {
-        if (l)
-        {
-            transform.Translate(Vector3.right * 0.2f);
-            l = false;
-        }
+		// Update is called once per frame
+		void Update() => movementAmount = Input.GetAxis("Horizontal");
 
-        if (r)
-        {
-            transform.Translate(Vector3.left * 0.2f);
-            r = false;
-        }
-    }
+		void FixedUpdate() => transform.Translate(movementSpeed * movementAmount * Vector3.right);
+	}
 }
