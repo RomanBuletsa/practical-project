@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Application;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Random = System.Random;
 
 namespace Game
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private GameUIManager gameUIManager;
         [SerializeField] private Player player;
         [SerializeField] private Land land;
-        [SerializeField] private Button menuButton;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private Transform parentSpawn;
         [SerializeField] private Transform[] positionSpawn;
-        [SerializeField] private  TextMeshProUGUI countText;
-        [SerializeField] private  TextMeshProUGUI targetText;
 
         
 
@@ -29,35 +23,45 @@ namespace Game
         private int countFallingObjects=0;
         private Queue<TypesPrefabs> objectsQueue = new Queue<TypesPrefabs>();
         private Dictionary<TypesPrefabs,List<GameObject>> bjectsDictionary = new Dictionary<TypesPrefabs, List<GameObject>>();
-        private Random rand;
-        private int currentCount;
+        private Random rand; // TODO: UnityEngine.Random
+        private int score;
         private Coroutine coroutine;
         
         private void Awake()
         {
             ApplicationManager.Instance.GameManager = this;
             
-            menuButton.onClick.AddListener(OnMenuButtonClicked);
             player.Caught += Caught; // TODO: you're not unsubscribing
             land.Delete += Delete; // TODO: you're not unsubscribing
+
+            gameUIManager.BackButtonClicked += OnBackButtonClicked;
+            gameUIManager.PauseButtonClicked += Pause;
+            gameUIManager.ResumeButtonClicked += Unpause;
         }
 
         private void Start()
         {
             StartGame();
         }
-        
+
+        private void OnBackButtonClicked() => SceneManager.LoadScene(ApplicationScenes.MainMenu.ToString());
+
+        private void Pause() => Time.timeScale = 0;
+
+        private void Unpause() => Time.timeScale = 1;
+
         private void StartGame()
         {
             roundNumber = 0;
-            UpdateCountText();
+            gameUIManager.UpdateScoreText(score);
             StartRound();
         }
 
         private void StartRound()
         {
-            currentRound = gameConfig.Rounds.ElementAt(roundNumber);
-            UpdateTargetText();
+            currentRound = gameConfig.Rounds[roundNumber];
+            var objectTypeName = ApplicationConstants.TypesPrefabsNames[currentRound.ObjectsToCatch];
+            gameUIManager.UpdateTargetObjectText(objectTypeName);
             bjectsDictionary.Clear();
             foreach (TypesPrefabs type in currentRound.AllObject)
             {
@@ -111,21 +115,11 @@ namespace Game
 
         private void Caught()
         {
-            if(objectsQueue.Count>0)
-            if (objectsQueue.Dequeue().Equals(currentRound.ObjectsToCatch))
-                currentCount += currentRound.TrueAnswerPrice;
-            else currentCount += currentRound.FalseAswerPrice;
-            UpdateCountText();
-        }
-        
-        private void UpdateCountText()
-        {
-            countText.text = $"{currentCount}";
-        }
-        
-        private void UpdateTargetText()
-        {
-            targetText.text = currentRound.ObjectsToCatch.ToString();
+            if (objectsQueue.Count > 0)
+                if (objectsQueue.Dequeue().Equals(currentRound.ObjectsToCatch))
+                    score += currentRound.TrueAnswerPrice;
+                else score += currentRound.FalseAswerPrice;
+            gameUIManager.UpdateScoreText(score);
         }
 
 
@@ -141,11 +135,18 @@ namespace Game
 
         public Round GetCurrentRound() => currentRound;
 
-        private void OnMenuButtonClicked() => SceneManager.LoadScene(ApplicationScenes.MainMenu.ToString());
-
         private void OnDestroy()
         {
             ApplicationManager.Instance.GameManager = null;
+         
+            Unpause();
+            
+            player.Caught -= Caught;
+            land.Delete -= Delete;
+
+            gameUIManager.BackButtonClicked -= OnBackButtonClicked;
+            gameUIManager.PauseButtonClicked -= Pause;
+            gameUIManager.ResumeButtonClicked -= Unpause;
         }
     }
 }

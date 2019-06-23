@@ -4,7 +4,7 @@
     {
         ChemicalElements,
         Plants,
-        Liguids,
+        Liquids,
         Food,
         Gems,
         Metals

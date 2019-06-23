@@ -1,31 +1,17 @@
-﻿using System;
-using Application;
+﻿using Application;
 using UnityEngine;
 
 namespace Game
 {
     public class ItemMover : MonoBehaviour
     {
-        private Transform transform;
-        private Rigidbody2D rigidbody;
-        private float speed;
-
-        private void Awake()
-        {
-            
-        }
+        private Rigidbody2D rb;
 
         private void Start()
         {
-            transform = gameObject.GetComponent<Transform>();
-            rigidbody = gameObject.GetComponent<Rigidbody2D>();
-            speed = ApplicationManager.Instance.GameManager.GetCurrentRound().Speed;
-            rigidbody.velocity =  speed * Vector2.down;
-        }
-
-        private void Update()
-        {
-            //transform.Rotate(Vector2.up * 250f * Time.deltaTime);
+            rb = gameObject.GetComponent<Rigidbody2D>();
+            var speed = ApplicationManager.Instance.GameManager.GetCurrentRound().Speed;
+            rb.velocity =  speed * Vector2.down;
         }
     }
 }

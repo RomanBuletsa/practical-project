@@ -17,21 +17,21 @@ MonoBehaviour:
     allObject: 0300000005000000
     countFallingObjPerPound: 5
     roundSpawnRate: 1.5
-    speed: 0.5
+    speed: 1.5
     trueAnswerPrice: 5
     falseAswerPrice: -5
   - objectsToCatch: 1
     allObject: 010000000200000003000000
     countFallingObjPerPound: 7
     roundSpawnRate: 1.5
-    speed: 1.5
+    speed: 2
     trueAnswerPrice: 7
     falseAswerPrice: -7
   - objectsToCatch: 0
     allObject: 000000000200000001000000
     countFallingObjPerPound: 8
     roundSpawnRate: 0.8
-    speed: 1.6
+    speed: 2.5
     trueAnswerPrice: 7
     falseAswerPrice: -8
   fallingObjects:
