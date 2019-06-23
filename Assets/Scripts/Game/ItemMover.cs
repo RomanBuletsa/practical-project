@@ -1,4 +1,5 @@
-﻿using Application;
+﻿using System;
+using Application;
 using UnityEngine;
 
 namespace Game
@@ -11,6 +12,11 @@ namespace Game
 
         private void Awake()
         {
+            
+        }
+
+        private void Start()
+        {
             transform = gameObject.GetComponent<Transform>();
             rigidbody = gameObject.GetComponent<Rigidbody2D>();
             speed = ApplicationManager.Instance.GameManager.GetCurrentRound().Speed;
@@ -19,7 +25,7 @@ namespace Game
 
         private void Update()
         {
-            transform.Rotate(Vector2.up * 250f * Time.deltaTime);
+            //transform.Rotate(Vector2.up * 250f * Time.deltaTime);
         }
     }
 }
