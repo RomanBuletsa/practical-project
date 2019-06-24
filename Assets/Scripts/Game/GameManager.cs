@@ -88,15 +88,13 @@ namespace Game
                 {
                     timeElapsed = 0f;
                     rand = new Random();
-                    int pos1 = rand.Next(0, positionSpawn.Length);
-                    int pos2 = rand.Next(0, currentRound.AllObject.Count);
-                    TypesPrefabs typ = currentRound.AllObject[pos2];
-                    objectsQueue.Enqueue(typ);
-                    int pos3 = rand.Next(0, bjectsDictionary[typ].Count);
-                    var newObj = Instantiate(bjectsDictionary[typ][pos3],parentSpawn);
-                    newObj.transform.position = positionSpawn[pos1].position;
-                    
-                    
+                    int spawnPositionIndex = rand.Next(0, positionSpawn.Length);
+                    int objTypeIndex = rand.Next(0, currentRound.AllObject.Count);
+                    TypesPrefabs type = currentRound.AllObject[objTypeIndex];
+                    objectsQueue.Enqueue(type);
+                    int prefIndex = rand.Next(0, bjectsDictionary[type].Count);
+                    var newObj = Instantiate(bjectsDictionary[type][prefIndex],
+                        positionSpawn[spawnPositionIndex].position, Quaternion.identity, parentSpawn);
                     countFallingObjects++;
                 }
                 timeElapsed += Time.deltaTime;
