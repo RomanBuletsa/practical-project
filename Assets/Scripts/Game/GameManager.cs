@@ -23,7 +23,7 @@ namespace Game
         private int countFallingObjects=0;
         private Queue<TypesPrefabs> objectsQueue = new Queue<TypesPrefabs>();
         private Dictionary<TypesPrefabs,List<GameObject>> bjectsDictionary = new Dictionary<TypesPrefabs, List<GameObject>>();
-        private Random rand; // TODO: UnityEngine.Random
+        private Random rand; 
         private int score;
         private Coroutine coroutine;
         
@@ -31,8 +31,8 @@ namespace Game
         {
             ApplicationManager.Instance.GameManager = this;
             
-            player.Caught += Caught; // TODO: you're not unsubscribing
-            land.Delete += Delete; // TODO: you're not unsubscribing
+            player.Caught += Caught; 
+            land.Delete += Delete; 
 
             gameUIManager.BackButtonClicked += OnBackButtonClicked;
             gameUIManager.PauseButtonClicked += Pause;
@@ -127,10 +127,11 @@ namespace Game
         {
             StopCoroutine(coroutine);
             roundNumber++;
-            if (roundNumber < gameConfig.Rounds.Count)
+            if (roundNumber.Equals(gameConfig.Rounds.Count))
             {
-                StartRound();
+                roundNumber = 0;
             }
+            StartRound();
         }
 
         public Round GetCurrentRound() => currentRound;
