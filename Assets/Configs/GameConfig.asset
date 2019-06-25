@@ -34,6 +34,27 @@ MonoBehaviour:
     speed: 2.5
     trueAnswerPrice: 7
     falseAswerPrice: -8
+  - objectsToCatch: 4
+    allObject: 0100000002000000030000000400000000000000
+    countFallingObjPerPound: 8
+    roundSpawnRate: 0.8
+    speed: 2.7
+    trueAnswerPrice: 5
+    falseAswerPrice: -6
+  - objectsToCatch: 2
+    allObject: 0500000002000000030000000400000000000000
+    countFallingObjPerPound: 8
+    roundSpawnRate: 0.8
+    speed: 2.8
+    trueAnswerPrice: 6
+    falseAswerPrice: -7
+  - objectsToCatch: 5
+    allObject: 05000000000000000300000004000000
+    countFallingObjPerPound: 8
+    roundSpawnRate: 0.8
+    speed: 2.9
+    trueAnswerPrice: 6
+    falseAswerPrice: -7
   fallingObjects:
   - type: 0
     prefabs:

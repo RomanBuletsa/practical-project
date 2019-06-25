@@ -208,8 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.2
-  movementMaxX: 0
-  movementMinX: 0
 --- !u!61 &290524712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18088388, y: -1.325574}
+  m_Offset: {x: -0.2509191, y: -1.325574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -234,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11, y: 3.245056}
+  m_Size: {x: 13.934212, y: 3.245056}
   m_EdgeRadius: 0
 --- !u!50 &290524713
 Rigidbody2D:
@@ -453,7 +451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameUIManager: {fileID: 3528029364759906504}
   player: {fileID: 290524714}
-  land: {fileID: 1482390184}
   gameConfig: {fileID: 11400000, guid: 72e5305f6ee8c1c428d5c8e9807d60b8, type: 2}
   parentSpawn: {fileID: 1805705884}
   positionSpawn:
