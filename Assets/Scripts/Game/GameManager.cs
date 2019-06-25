@@ -116,10 +116,8 @@ namespace Game
         {
             StopCoroutine(coroutine);
             roundNumber++;
-            if (roundNumber < gameConfig.Rounds.Count)
-            {
-                StartRound();
-            }
+            if (roundNumber.Equals(gameConfig.Rounds.Count)) roundNumber = 0;
+            StartRound();
         }
 
         public Round GetCurrentRound() => currentRound;
