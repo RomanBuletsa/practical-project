@@ -8,8 +8,10 @@ namespace MainMenu
     public class MainMenuManager : MonoBehaviour
     {
         [SerializeField] private Button playButton;
-        [SerializeField] private Button settingsButton;
+        [SerializeField] private Button infoButton;
         [SerializeField] private Button exitButton;
+        [SerializeField] private Button backButton;
+        [SerializeField] private GameObject rulesPannel;
     
     
         private void Awake()
@@ -17,16 +19,20 @@ namespace MainMenu
             ApplicationManager.Instance.MainMenuManager = this;
             
             playButton.onClick.AddListener(OnPlayButtonClicked);
-            settingsButton.onClick.AddListener(OnSettingsButtonClicked);
+            infoButton.onClick.AddListener(OnInfoButtonClicked);
             exitButton.onClick.AddListener(OnExitButtonClicked);
-
+            backButton.onClick.AddListener(OnBackButtonClicked);
+            
+            rulesPannel.SetActive(false);
         }
 
         private void OnPlayButtonClicked() => SceneManager.LoadScene(ApplicationScenes.Game.ToString());
 
-        private void OnSettingsButtonClicked() {}
+        private void OnInfoButtonClicked() => rulesPannel.SetActive(true);
 
         private void OnExitButtonClicked() => UnityEngine.Application.Quit();
+
+        private void OnBackButtonClicked() => rulesPannel.SetActive(false);
 
         private void OnDestroy()
         {

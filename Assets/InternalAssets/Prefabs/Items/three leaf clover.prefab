@@ -14,7 +14,15 @@ GameObject:
   - component: {fileID: 8236019705731966369}
   - component: {fileID: 8101195134028631430}
   m_Layer: 0
+<<<<<<< HEAD:Assets/InternalAssets/Prefabs/Items/three leaf clover.prefab
   m_Name: qwe 3 pls pls pls
+=======
+<<<<<<< Updated upstream:Assets/InternalAssets/Prefabs/Items/qwe 3 pls pls pls.prefab
+  m_Name: qwe 3
+=======
+  m_Name: three leaf clover
+>>>>>>> Stashed changes:Assets/InternalAssets/Prefabs/Items/three leaf clover.prefab
+>>>>>>> d0b7fa079b2c7d640aee1abd1069d1993bd7a66d:Assets/InternalAssets/Prefabs/Items/qwe 3 pls pls pls.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 8236019705731966368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.73163, y: -0.36411592, z: -11.92456}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
