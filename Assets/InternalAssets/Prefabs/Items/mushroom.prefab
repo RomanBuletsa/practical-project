@@ -14,11 +14,7 @@ GameObject:
   - component: {fileID: 8236019705731966369}
   - component: {fileID: 8101195134028631430}
   m_Layer: 0
-<<<<<<< Updated upstream:Assets/InternalAssets/Prefabs/Items/qwe 3 pls pls pls.prefab
-  m_Name: qwe 3
-=======
-  m_Name: three leaf clover
->>>>>>> Stashed changes:Assets/InternalAssets/Prefabs/Items/three leaf clover.prefab
+  m_Name: zink 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -79896265
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c99c08fb2785eb4da2a6de83d8a7e03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 421750e670078b94eaaf7932f9c6fc1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06015873, y: 0.09681058}
+  m_Offset: {x: 0.06015873, y: -0.51768446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,5 +139,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9481182, y: 1.4435439}
+  m_Size: {x: 0.9481182, y: 0.29394528}
   m_EdgeRadius: 0
