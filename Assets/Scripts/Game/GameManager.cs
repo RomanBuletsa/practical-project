@@ -11,7 +11,6 @@ namespace Game
     {
         [SerializeField] private GameUIManager gameUIManager;
         [SerializeField] private Player player;
-        [SerializeField] private Land land;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private Transform parentSpawn;
         [SerializeField] private Transform[] positionSpawn;
@@ -21,9 +20,8 @@ namespace Game
         private Round currentRound;
         private int roundNumber;
         private int countFallingObjects=0;
-        private Queue<TypesPrefabs> objectsQueue = new Queue<TypesPrefabs>();
         private Dictionary<TypesPrefabs,List<GameObject>> bjectsDictionary = new Dictionary<TypesPrefabs, List<GameObject>>();
-        private Random rand; // TODO: UnityEngine.Random
+        private Random rand; 
         private int score;
         private Coroutine coroutine;
         
@@ -31,8 +29,7 @@ namespace Game
         {
             ApplicationManager.Instance.GameManager = this;
             
-            player.Caught += Caught; // TODO: you're not unsubscribing
-            land.Delete += Delete; // TODO: you're not unsubscribing
+            player.Caught += Caught; 
 
             gameUIManager.BackButtonClicked += OnBackButtonClicked;
             gameUIManager.PauseButtonClicked += Pause;
@@ -88,14 +85,12 @@ namespace Game
                 {
                     timeElapsed = 0f;
                     rand = new Random();
-                    int pos1 = rand.Next(0, positionSpawn.Length);
-                    int pos2 = rand.Next(0, currentRound.AllObject.Count);
-                    TypesPrefabs typ = currentRound.AllObject[pos2];
-                    objectsQueue.Enqueue(typ);
-                    int pos3 = rand.Next(0, bjectsDictionary[typ].Count);
-                    var newObj = Instantiate(bjectsDictionary[typ][pos3],parentSpawn);
-                    newObj.transform.position = positionSpawn[pos1].position;
-                    
+                    int spawnPositionIndex = rand.Next(0, positionSpawn.Length);
+                    int objTypeIndex = rand.Next(0, currentRound.AllObject.Count);
+                    TypesPrefabs type = currentRound.AllObject[objTypeIndex];
+                    int prefIndex = rand.Next(0, bjectsDictionary[type].Count);
+                    Instantiate(bjectsDictionary[type][prefIndex],
+                        positionSpawn[spawnPositionIndex].position, Quaternion.identity, parentSpawn);
                     
                     countFallingObjects++;
                 }
@@ -108,16 +103,10 @@ namespace Game
 
         }
 
-        private void Delete()
-        {
-            if(objectsQueue.Count>0)objectsQueue.Dequeue();
-        }
 
-        private void Caught()
+        private void Caught(TypesPrefabs type)
         {
-            if (objectsQueue.Count > 0)
-                if (objectsQueue.Dequeue().Equals(currentRound.ObjectsToCatch))
-                    score += currentRound.TrueAnswerPrice;
+            if (type.Equals(currentRound.ObjectsToCatch)) score += currentRound.TrueAnswerPrice;
                 else score += currentRound.FalseAswerPrice;
             gameUIManager.UpdateScoreText(score);
         }
@@ -142,7 +131,6 @@ namespace Game
             Unpause();
             
             player.Caught -= Caught;
-            land.Delete -= Delete;
 
             gameUIManager.BackButtonClicked -= OnBackButtonClicked;
             gameUIManager.PauseButtonClicked -= Pause;
