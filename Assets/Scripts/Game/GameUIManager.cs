@@ -12,6 +12,7 @@ namespace Game
 		public event Action ResumeButtonClicked;
 		
 		[SerializeField] private TextMeshProUGUI scoreText;
+		[SerializeField] private TextMeshProUGUI bestScoreText;
 		[SerializeField] private TextMeshProUGUI targetObjectText;
 		[SerializeField] private Button backButton;
 		[SerializeField] private Button pauseButton;
@@ -42,6 +43,7 @@ namespace Game
 		}
 
 		public void UpdateScoreText(int score) => scoreText.text = $"{score}";
+		public void UpdateBestScoreText(int bestScore) => bestScoreText.text = $"Best score: {bestScore}";
 
 		public void UpdateTargetObjectText(string targetObjectName) => targetObjectText.text = targetObjectName;
 	}

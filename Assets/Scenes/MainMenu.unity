@@ -303,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 446538379}
     m_Modifications:
+    - target: {fileID: 406329982553522599, guid: b4a9ac9ff09fe1d4db0e08b609e7fb7d,
+        type: 3}
+      propertyPath: m_Name
+      value: BackButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4077960722070553706, guid: b4a9ac9ff09fe1d4db0e08b609e7fb7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,11 +412,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 406329982553522599, guid: b4a9ac9ff09fe1d4db0e08b609e7fb7d,
-        type: 3}
-      propertyPath: m_Name
-      value: BackButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4a9ac9ff09fe1d4db0e08b609e7fb7d, type: 3}
@@ -2327,6 +2327,7 @@ MonoBehaviour:
   exitButton: {fileID: 1032884624}
   backButton: {fileID: 381283040}
   rulesPannel: {fileID: 446538378}
+  bestScoreText: {fileID: 558062971}
 --- !u!1 &2023621255
 GameObject:
   m_ObjectHideFlags: 0

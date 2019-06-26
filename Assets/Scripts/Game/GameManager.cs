@@ -24,6 +24,7 @@ namespace Game
         private Random rand; 
         private int score;
         private Coroutine coroutine;
+        private int bestGameScore;
         
         private void Awake()
         {
@@ -41,7 +42,11 @@ namespace Game
             StartGame();
         }
 
-        private void OnBackButtonClicked() => SceneManager.LoadScene(ApplicationScenes.MainMenu.ToString());
+        private void OnBackButtonClicked()
+        {
+            SceneManager.LoadScene(ApplicationScenes.MainMenu.ToString());
+            PlayerPrefs.SetInt("Best",Mathf.Max(PlayerPrefs.GetInt("Best",0),bestGameScore));
+        } 
 
         private void Pause() => Time.timeScale = 0;
 
@@ -51,6 +56,7 @@ namespace Game
         {
             roundNumber = 0;
             gameUIManager.UpdateScoreText(score);
+            gameUIManager.UpdateBestScoreText(bestGameScore);
             StartRound();
         }
 
@@ -109,6 +115,11 @@ namespace Game
             if (type.Equals(currentRound.ObjectsToCatch)) score += currentRound.TrueAnswerPrice;
                 else score += currentRound.FalseAswerPrice;
             gameUIManager.UpdateScoreText(score);
+            if (score>bestGameScore)
+            {
+                bestGameScore = score;
+                gameUIManager.UpdateBestScoreText(bestGameScore);
+            }
         }
 
 

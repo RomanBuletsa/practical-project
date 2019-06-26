@@ -880,6 +880,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 544933808487880920, guid: cb74cd7f08cf34242b9c7b42592aa8b9,
+        type: 3}
+      propertyPath: bestScoreText
+      value: 
+      objectReference: {fileID: 3997483888253079569}
     - target: {fileID: 1285937686508062925, guid: cb74cd7f08cf34242b9c7b42592aa8b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1017,3 +1022,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb74cd7f08cf34242b9c7b42592aa8b9, type: 3}
+--- !u!114 &3997483888253079569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4428730520320355793, guid: cb74cd7f08cf34242b9c7b42592aa8b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3997483888253079568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
