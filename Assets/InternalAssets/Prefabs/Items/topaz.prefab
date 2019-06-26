@@ -13,13 +13,9 @@ GameObject:
   - component: {fileID: 8236019705731966374}
   - component: {fileID: 8236019705731966369}
   - component: {fileID: 8101195134028631430}
-  - component: {fileID: 62892024933026265}
+  - component: {fileID: 4869023357212787832}
   m_Layer: 0
-<<<<<<< HEAD
-  m_Name: three leaf clover 1
-=======
-  m_Name: topaz
->>>>>>> d0b7fa079b2c7d640aee1abd1069d1993bd7a66d
+  m_Name: zink 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,11 +30,7 @@ Transform:
   m_GameObject: {fileID: 8236019705731966368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.73163, y: -0.36411592, z: -11.92456}
-<<<<<<< HEAD
-  m_LocalScale: {x: 1, y: 1, z: 1}
-=======
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
->>>>>>> d0b7fa079b2c7d640aee1abd1069d1993bd7a66d
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -150,7 +142,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9481182, y: 0.29394528}
   m_EdgeRadius: 0
---- !u!114 &62892024933026265
+--- !u!114 &4869023357212787832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,4 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2cda1011bb0c4418499a57cee6b4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
+  type: 5
