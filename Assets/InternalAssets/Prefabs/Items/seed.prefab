@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8101195134028631430}
   - component: {fileID: 4869023357212787832}
   m_Layer: 0
-  m_Name: zink 7
+  m_Name: seed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2cda1011bb0c4418499a57cee6b4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 5
+  type: 1
