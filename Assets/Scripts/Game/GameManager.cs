@@ -11,7 +11,6 @@ namespace Game
     {
         [SerializeField] private GameUIManager gameUIManager;
         [SerializeField] private Player player;
-        [SerializeField] private Land land;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private Transform parentSpawn;
         [SerializeField] private Transform[] positionSpawn;
@@ -20,9 +19,8 @@ namespace Game
 
         private Round currentRound;
         private int roundNumber;
-        private int countFallingObjects=0;
-        private Queue<TypesPrefabs> objectsQueue = new Queue<TypesPrefabs>();
-        private Dictionary<TypesPrefabs,List<GameObject>> bjectsDictionary = new Dictionary<TypesPrefabs, List<GameObject>>();
+        private int countFallingObjects = 0;
+        private Dictionary<TypesPrefabs,List<GameObject>> objectsDictionary = new Dictionary<TypesPrefabs, List<GameObject>>();
         private Random rand; 
         private int score;
         private Coroutine coroutine;
@@ -32,7 +30,6 @@ namespace Game
             ApplicationManager.Instance.GameManager = this;
             
             player.Caught += Caught; 
-            land.Delete += Delete; 
 
             gameUIManager.BackButtonClicked += OnBackButtonClicked;
             gameUIManager.PauseButtonClicked += Pause;
@@ -62,14 +59,14 @@ namespace Game
             currentRound = gameConfig.Rounds[roundNumber];
             var objectTypeName = ApplicationConstants.TypesPrefabsNames[currentRound.ObjectsToCatch];
             gameUIManager.UpdateTargetObjectText(objectTypeName);
-            bjectsDictionary.Clear();
+            objectsDictionary.Clear();
             foreach (TypesPrefabs type in currentRound.AllObject)
             {
                 foreach (FallingObject obj in gameConfig.FallingObjects)
                 {
                     if (type.Equals(obj.Type))
                     {
-                        bjectsDictionary.Add(type,obj.Prefabs);
+                        objectsDictionary.Add(type,obj.Prefabs);
                     }
                 }
             }
@@ -91,9 +88,9 @@ namespace Game
                     int spawnPositionIndex = rand.Next(0, positionSpawn.Length);
                     int objTypeIndex = rand.Next(0, currentRound.AllObject.Count);
                     TypesPrefabs type = currentRound.AllObject[objTypeIndex];
-                    objectsQueue.Enqueue(type);
-                    int prefIndex = rand.Next(0, bjectsDictionary[type].Count);
-                    var newObj = Instantiate(bjectsDictionary[type][prefIndex],
+
+                    int prefIndex = rand.Next(0, objectsDictionary[type].Count);
+                    Instantiate(objectsDictionary[type][prefIndex],
                         positionSpawn[spawnPositionIndex].position, Quaternion.identity, parentSpawn);
                     countFallingObjects++;
                 }
@@ -106,16 +103,10 @@ namespace Game
 
         }
 
-        private void Delete()
-        {
-            if(objectsQueue.Count>0)objectsQueue.Dequeue();
-        }
 
-        private void Caught()
+        private void Caught(TypesPrefabs type)
         {
-            if (objectsQueue.Count > 0)
-                if (objectsQueue.Dequeue().Equals(currentRound.ObjectsToCatch))
-                    score += currentRound.TrueAnswerPrice;
+            if (type.Equals(currentRound.ObjectsToCatch)) score += currentRound.TrueAnswerPrice;
                 else score += currentRound.FalseAswerPrice;
             gameUIManager.UpdateScoreText(score);
         }
@@ -125,10 +116,7 @@ namespace Game
         {
             StopCoroutine(coroutine);
             roundNumber++;
-            if (roundNumber.Equals(gameConfig.Rounds.Count))
-            {
-                roundNumber = 0;
-            }
+            if (roundNumber.Equals(gameConfig.Rounds.Count)) roundNumber = 0;
             StartRound();
         }
 
@@ -141,7 +129,6 @@ namespace Game
             Unpause();
             
             player.Caught -= Caught;
-            land.Delete -= Delete;
 
             gameUIManager.BackButtonClicked -= OnBackButtonClicked;
             gameUIManager.PauseButtonClicked -= Pause;
