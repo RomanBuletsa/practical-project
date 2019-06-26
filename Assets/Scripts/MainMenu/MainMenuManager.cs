@@ -37,7 +37,7 @@ namespace MainMenu
 
         private void OnBackButtonClicked() => rulesPannel.SetActive(false);
         
-        public void UpdateBestScoreText(int bestScore) => bestScoreText.text = $"{bestScore}";
+        public void UpdateBestScoreText(int bestScore) => bestScoreText.text = $"Best score: {bestScore}";
 
         private void OnDestroy()
         {
