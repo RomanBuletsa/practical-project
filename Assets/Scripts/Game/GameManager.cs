@@ -64,7 +64,7 @@ namespace Game
         {
             currentRound = gameConfig.Rounds[roundNumber];
             var objectTypeName = ApplicationConstants.TypesPrefabsNames[currentRound.ObjectsToCatch];
-            gameUIManager.UpdateTargetObjectText(objectTypeName);
+            gameUIManager.UpdateTargetObjectText(objectTypeName, roundNumber);
             objectsDictionary.Clear();
             foreach (TypesPrefabs type in currentRound.AllObject)
             {
@@ -106,7 +106,6 @@ namespace Game
 
             countFallingObjects = 0;
             NextRound();
-
         }
 
 

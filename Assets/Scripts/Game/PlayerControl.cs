@@ -11,6 +11,7 @@ namespace Game
 		private float movementAmount;
 		private Vector3 playerPosition;
 		private float lastMousePositionX;
+		private float delta;
 		private const float PLAYERWIGHT = 0.7f;
 
 
@@ -25,20 +26,17 @@ namespace Game
 
 		void Update()
 		{
-			movementAmount = Input.GetAxis("Horizontal");
+			var mousePositionX = Input.mousePosition.x;
+			delta = mousePositionX - lastMousePositionX;
+			lastMousePositionX = mousePositionX;
 		}
 
 		void FixedUpdate()
 		{
-			var mousePositionX = Input.mousePosition.x;
-			var delta = mousePositionX - lastMousePositionX;
 			transform.Translate(delta * movementSpeed * Time.deltaTime, 0, 0);
-			lastMousePositionX = mousePositionX;
-			
 			playerPosition = transform.position;
 			playerPosition.x = Mathf.Clamp(playerPosition.x, movementMinX, movementMaxX);
 			transform.Translate(playerPosition - transform.position);
-		//	transform.Translate(movementSpeed * movementAmount * Vector3.right);
 		}
 	}
 }
